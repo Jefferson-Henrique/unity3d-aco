@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 1fc94c4ff9d3eef4485efd5fd8bcf94e
+timeCreated: 1471523935
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: antennae_001_L
+    100004: antennae_001_R
+    100006: antennae_002_L
+    100008: antennae_002_R
+    100010: antennae_003_L
+    100012: antennae_003_R
+    100014: antennae_004_L
+    100016: antennae_004_R
+    100018: Armature
+    100020: Bone
+    100022: Bone_001
+    100024: Bone_002
+    100026: Bone_003
+    100028: Bone_004
+    100030: Bone_005
+    100032: Cube
+    100034: lower_leg_001_L
+    100036: lower_leg_001_R
+    100038: lower_leg_002_L
+    100040: lower_leg_002_L_001
+    100042: lower_leg_002_R
+    100044: lower_leg_002_R_001
+    100046: middle_leg_001_L
+    100048: middle_leg_001_R
+    100050: middle_leg_002_L
+    100052: middle_leg_002_L_001
+    100054: middle_leg_002_R
+    100056: middle_leg_002_R_001
+    100058: upper_leg_001_L
+    100060: upper_leg_001_R
+    100062: upper_leg_002_L
+    100064: upper_leg_002_L_001
+    100066: upper_leg_002_R
+    100068: upper_leg_002_R_001
+    400000: //RootNode
+    400002: antennae_001_L
+    400004: antennae_001_R
+    400006: antennae_002_L
+    400008: antennae_002_R
+    400010: antennae_003_L
+    400012: antennae_003_R
+    400014: antennae_004_L
+    400016: antennae_004_R
+    400018: Armature
+    400020: Bone
+    400022: Bone_001
+    400024: Bone_002
+    400026: Bone_003
+    400028: Bone_004
+    400030: Bone_005
+    400032: Cube
+    400034: lower_leg_001_L
+    400036: lower_leg_001_R
+    400038: lower_leg_002_L
+    400040: lower_leg_002_L_001
+    400042: lower_leg_002_R
+    400044: lower_leg_002_R_001
+    400046: middle_leg_001_L
+    400048: middle_leg_001_R
+    400050: middle_leg_002_L
+    400052: middle_leg_002_L_001
+    400054: middle_leg_002_R
+    400056: middle_leg_002_R_001
+    400058: upper_leg_001_L
+    400060: upper_leg_001_R
+    400062: upper_leg_002_L
+    400064: upper_leg_002_L_001
+    400066: upper_leg_002_R
+    400068: upper_leg_002_R_001
+    4300000: Cube
+    7400000: Default Take
+    7400002: walk_cycle
+    9500000: //RootNode
+    13700000: Cube
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleRotations: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
