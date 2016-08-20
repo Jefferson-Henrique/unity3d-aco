@@ -17,51 +17,57 @@ namespace JH.ACO {
 
         private List<Ant> ants = new List<Ant>();
 
-        private float initialPheromone;
+        public int NumberOfAnts {
+            get {
+                return ants.Count;
+            }
+        }
 
-        private float functionConstant;
+        private double initialPheromone;
 
-        public float FunctionConstant {
+        private double functionConstant;
+
+        public double FunctionConstant {
             get {
                 return functionConstant;
             }
         }
 
-        private float evaporationRate;
+        private double evaporationRate;
 
-        private float alpha;
+        private double alpha;
 
-        public float Alpha {
+        public double Alpha {
             get {
                 return alpha;
             }
         }
 
-        private float beta;
+        private double beta;
 
-        public float Beta {
+        public double Beta {
             get {
                 return beta;
             }
         }
 
-        private float[,] pathCosts;
+        private double[,] pathCosts;
 
-        public float[,] PathCosts {
+        public double[,] PathCosts {
             get {
                 return pathCosts;
             }
         }
 
-        private float[,] pheromoneCosts;
+        private double[,] pheromoneCosts;
 
-        public float[,] PheromoneCosts {
+        public double[,] PheromoneCosts {
             get {
                 return pheromoneCosts;
             }
         }
 
-        public AntSystem(int numberOfNodes, int numberOfAnts, float initialPheromone, float functionConstant, float evaporationRate, float alpha, float beta) {
+        public AntSystem(int numberOfNodes, int numberOfAnts, double initialPheromone, double functionConstant, double evaporationRate, double alpha, double beta) {
             this.numberOfNodes = numberOfNodes;
             this.initialPheromone = initialPheromone;
             this.functionConstant = functionConstant;
@@ -69,8 +75,8 @@ namespace JH.ACO {
             this.alpha = alpha;
             this.beta = beta;
 
-            this.pathCosts = new float[numberOfNodes, numberOfNodes];
-            this.pheromoneCosts = new float[numberOfNodes, numberOfNodes];
+            this.pathCosts = new double[numberOfNodes, numberOfNodes];
+            this.pheromoneCosts = new double[numberOfNodes, numberOfNodes];
 
             for (int index = 0; index < numberOfAnts; index++) {
                 this.ants.Add(new Ant(this));
@@ -80,12 +86,12 @@ namespace JH.ACO {
         private void Init() {
             for (int index1 = 0; index1 < numberOfNodes; index1++) {
                 for (int index2 = 0; index2 < numberOfNodes; index2++) {
-                    this.pheromoneCosts[index1, index2] = (float)randomGenerator.NextDouble() * initialPheromone;
+                    this.pheromoneCosts[index1, index2] = randomGenerator.NextDouble() * initialPheromone;
                 }
             }
         }
 
-        public void AddPathCost(int nodeFromIndex, int nodeToIndex, float cost) {
+        public void AddPathCost(int nodeFromIndex, int nodeToIndex, double cost) {
             this.pathCosts[nodeFromIndex, nodeToIndex] = cost;
             this.pathCosts[nodeToIndex, nodeFromIndex] = cost;
         }
@@ -95,7 +101,7 @@ namespace JH.ACO {
 
             AntSystemResult result = new AntSystemResult();
 
-            float minSolutionQuality = float.MaxValue;
+            double minSolutionQuality = double.MaxValue;
             AntResult bestAntResult = null;
 
             int stepCounter = 0;
@@ -130,9 +136,9 @@ namespace JH.ACO {
                             this.pheromoneCosts[index1, index2] *= (1 - this.evaporationRate);
                             resultIteration.afterEvaporation[index1, index2] = this.pheromoneCosts[index1, index2];
 
-                            float depositedPheromone = 0;
+                            double depositedPheromone = 0;
                             for (int antIndex = 0; antIndex < ants.Count; antIndex++) {
-                                float pheromoneLevel = this.ants[antIndex].GetDepositedPheromone(index1, index2);
+                                double pheromoneLevel = this.ants[antIndex].GetDepositedPheromone(index1, index2);
                                 depositedPheromone += pheromoneLevel;
 
                                 resultIteration.ants[antIndex].trails[index1, index2] = pheromoneLevel;
@@ -161,7 +167,7 @@ namespace JH.ACO {
 
         public List<AntSystemResultIteration> iterations = new List<AntSystemResultIteration>();
 
-        public float maxPheromone;
+        public double maxPheromone;
 
         public List<int> bestPath;
 
@@ -171,10 +177,10 @@ namespace JH.ACO {
 
         public List<AntResult> ants = new List<AntResult>();
 
-        public float[,] afterEvaporation;
+        public double[,] afterEvaporation;
 
         public AntSystemResultIteration(int numberOfNodes) {
-            this.afterEvaporation = new float[numberOfNodes, numberOfNodes];
+            this.afterEvaporation = new double[numberOfNodes, numberOfNodes];
         }
 
     }
@@ -183,10 +189,10 @@ namespace JH.ACO {
 
         public List<int> visitedPath;
 
-        public float[,] trails;
+        public double[,] trails;
 
         public AntResult(int numberOfNodes, List<int> visitedPath) {
-            this.trails = new float[numberOfNodes, numberOfNodes];
+            this.trails = new double[numberOfNodes, numberOfNodes];
             this.visitedPath = visitedPath;
         }
 

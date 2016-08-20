@@ -11,9 +11,9 @@ namespace JH.ACO {
             get; set;
         }
 
-        private float solutionQuality;
+        private double solutionQuality;
 
-        public float SolutionQuality {
+        public double SolutionQuality {
             get; set;
         }
 
@@ -34,7 +34,7 @@ namespace JH.ACO {
 
             set {
                 currentNodeIndex = value;
-                this.VisitedPath.Add(currentNodeIndex);
+                this.visitedPath.Add(currentNodeIndex);
             }
         }
 
@@ -50,16 +50,16 @@ namespace JH.ACO {
 
         public void PickNextNode() {
             List<int> mapNodeIndex = new List<int>();
-            List<float> mapNodeValue = new List<float>();
+            List<double> mapNodeValue = new List<double>();
 
-            float denominatorSum = 0;
+            double denominatorSum = 0;
 
             for (int nodeIndex = 0; nodeIndex < this.antSystem.NumberOfNodes; nodeIndex++) {
                 if (this.visitedPath.IndexOf(nodeIndex) == -1) {
-                    float pheromoneValue = (float) Math.Pow(this.antSystem.PheromoneCosts[this.currentNodeIndex, nodeIndex], this.antSystem.Alpha);
-                    float heuristicValue = (float) Math.Pow(1 / this.antSystem.PathCosts[this.currentNodeIndex, nodeIndex], this.antSystem.Beta);
+                    double pheromoneValue = Math.Pow(this.antSystem.PheromoneCosts[this.currentNodeIndex, nodeIndex], this.antSystem.Alpha);
+                    double heuristicValue = Math.Pow(1 / this.antSystem.PathCosts[this.currentNodeIndex, nodeIndex], this.antSystem.Beta);
 
-                    float totalValue = pheromoneValue * heuristicValue;
+                    double totalValue = pheromoneValue * heuristicValue;
 
                     denominatorSum += totalValue;
                     mapNodeIndex.Add(nodeIndex);
@@ -67,12 +67,12 @@ namespace JH.ACO {
                 }
             }
 
-            float randomValueChosen = (float) AntSystem.randomGenerator.NextDouble() * denominatorSum;
-            float probabilityAux = 0;
+            double randomValueChosen = AntSystem.randomGenerator.NextDouble() * denominatorSum;
+            double probabilityAux = 0;
 
             int nextNodeIndex = -1;
             for (int index = 0; index < mapNodeIndex.Count; index++) {
-                float currentValue = mapNodeValue[index];
+                double currentValue = mapNodeValue[index];
 
                 if (randomValueChosen >= probabilityAux && randomValueChosen < (probabilityAux + currentValue)) {
                     nextNodeIndex = mapNodeIndex[index];
@@ -93,7 +93,7 @@ namespace JH.ACO {
             }
         }
 
-        public float GetDepositedPheromone(int nodeFromIndex, int nodeToIndex) {
+        public double GetDepositedPheromone(int nodeFromIndex, int nodeToIndex) {
             int visitedIndexFrom = this.visitedPath.IndexOf(nodeFromIndex);
 
             if ((visitedIndexFrom > 0 && this.visitedPath[visitedIndexFrom - 1] == nodeToIndex) || (visitedIndexFrom < (this.visitedPath.Count - 1) && this.visitedPath[visitedIndexFrom+1] == nodeToIndex)) {
