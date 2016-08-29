@@ -8,13 +8,17 @@ namespace JH.ACO {
         private AntSystem antSystem;
 
         public AntSystem AntSystem {
-            get; set;
+            get {
+                return antSystem;
+            }
         }
 
         private double solutionQuality;
 
         public double SolutionQuality {
-            get; set;
+            get {
+                return solutionQuality;
+            }
         }
 
         private List<int> visitedPath = new List<int>();

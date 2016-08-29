@@ -15,6 +15,12 @@ public class AntPath : MonoBehaviour {
 
     private float distance = 0;
 
+    public bool Done {
+        get {
+            return index == -1;
+        }
+    }
+
     public void Reset() {
         index = 0;
         timer = 0;
@@ -23,11 +29,11 @@ public class AntPath : MonoBehaviour {
     }
 
     public void Update() {
-        if (index == -1) {
+        if (Done) {
             return;
         }
 
-        timer += Time.deltaTime / distance;
+        timer += Time.deltaTime / distance * antManager.speed;
         transform.position = Vector3.Lerp(antManager.markers[path[index]].position, antManager.markers[path[index + 1]].position, timer);
 
         if (timer >= 1) {
